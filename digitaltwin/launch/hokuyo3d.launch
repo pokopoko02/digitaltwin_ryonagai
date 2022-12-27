@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <include file="$(find hokuyo3d)/launch/hokuyo3d.launch" />
+
+    <node pkg="broadcaster" type="hokuyo3d_tf_broadcaster" name="hokuyo3d_tf_broadcaster" />
+</launch>
+

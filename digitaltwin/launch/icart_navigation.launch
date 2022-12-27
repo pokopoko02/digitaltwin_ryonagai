@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+	<arg name="map" />
+
+    <!-- icart-mini -->
+    <include file="$(find ypspur_ros)/launch/ypspur_ros.launch" />
+
+    <!-- LRF (urg_node) -->
+    <include file="$(find icart_navigation)/launch/urg_node.launch" />
+
+    <!-- tf -->
+    <node pkg="broadcaster" type="laser_tf_broadcaster" name="laser_tf_broadcaster" />
+
+    <node pkg="goal_queue" type="goal_queue_dqn" name="goal_queue_dqn" output="screen"></node>
+
+    <!-- map server -->
+    <include file="$(find icart_navigation)/launch/map.launch" />
+
+    <!-- amcl (localization) -->
+    <include file="$(find amcl)/examples/amcl_diff.launch" />
+
+    <!-- move base -->
+    <include file="$(find icart_navigation)/launch/move_base.launch" />
+
+    <!-- path change -->>
+    <!--<node name="path_change" pkg="digitaltwin" type="posesubpathpub.py" output="screen"></node>-->
+    
+    <!-- goal queue -->
+    <node pkg="goal_queue" type="goal_queue" name="goal_queue" output="screen">
+        <remap from="/goal_queue/goal" to="/goal" />
+        <remap from="/goal_queue/interrupt_goal" to="/interrupt_goal" />
+	    <param name="distance" value="0.5" />
+	</node>
+</launch>
+
