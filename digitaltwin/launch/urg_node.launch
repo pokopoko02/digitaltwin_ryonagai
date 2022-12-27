@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+    <node pkg="urg_node" type="urg_node" name="urg_node" respawn="true">
+        <param name="serial_port" value="/dev/serial/by-id/usb-Hokuyo_Data_Flex_for_USB_URG-Series_USB_Driver-if00" type="str" />
+        <param name="frame_id" value="laser" type="str" />
+        <param name="calibrate_time" value="true" type="bool" />
+        <param name="publish_intensity" value="false" type="bool" />
+        <param name="publish_multiecho" value="false" type="bool" />
+        <!--
+        <param name="angle_min" value="-1.5557963" type="double" />
+        <param name="angle_max" value="1.5557963" type="double" />
+        -->
+        <param name="angle_min" value="-1.5657963" type="double" />
+        <param name="angle_max" value="1.5707963" type="double" />
+    </node>
+</launch>

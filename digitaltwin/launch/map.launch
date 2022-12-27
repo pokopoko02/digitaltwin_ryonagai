@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <!--
+    <node pkg="map_server" type="map_server" name="map_server" args="/home/yuki/navigation_maps/nakano/nakano_f11_ver2.yaml" />
+    -->
+    <node pkg="map_server" type="map_server" name="map_server" args="/home/moriokalab/my_workspace/src/maps/nakano/nakano_11f.yaml" />
+    <!--
+    <node pkg="map_server" type="map_server" name="map_server" args="$(arg map)" />
+    -->
+</launch>
+
